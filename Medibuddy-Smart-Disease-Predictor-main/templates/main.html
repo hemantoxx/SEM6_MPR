@@ -15,80 +15,95 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
   <style>
-    html, body{
-        height:100%;
-        margin:0;
+    html, body {
+        height: 100%;
+        margin: 0;
     }
-    header{
-        height:80px;
+    header {
+        height: 80px;
     }
-    footer{
-        height:75px;
-    }
-
-    body{
-      display:flex;
-      flex-direction:column;
+    footer {
+        height: 75px;
     }
 
-    footer{
-      padding:10px;
-      margin-top:auto;
-      margin-bottom: auto;
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    footer {
+      height: 75px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 10px;
+      background-image: linear-gradient(#4e0374, #4e0374) !important;
+      color: white;
+    }
+
+    /* New styles for centered navigation */
+    .navbar {
+      justify-content: center !important;
+    }
+
+    .navbar-nav {
+      align-items: center;
+    }
+
+    .nav-item {
+      margin: 0 15px;
+    }
+
+    .nav-link {
+      font-size: 1.2rem !important;
+      font-weight: 600 !important;
+      text-transform: uppercase;
+    }
+
+    .navbar-brand {
+      margin-right: 0 !important; /* Remove default margin for logo */
     }
   </style>
-
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" style="background-image: linear-gradient(#4e0374, #4e0374) !important;">
-        <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename = 'logo.png') }} " height="70px" width="180px"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarNav">
-           <ul class="navbar-nav ml-auto">
-             <li class="nav-item active">
-               <a href="{{ url_for('home') }}" class="nav-link">Home</a>
-             </li>
-             <li class="nav-item active">
-               <a class="nav-link" href="{{ url_for('diabetesPage') }}">Diabetes</a>
-             </li>
-             <li class="nav-item active">
-               <a class="nav-link" href="{{ url_for('cancerPage') }}">Breast Cancer</a>
-             </li>
-             <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('heartPage') }}">Heart</a>
-             </li>
-             <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('kidneyPage') }}">Kidney</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('liverPage') }}">Liver</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('malariaPage') }}">Malaria</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('pneumoniaPage') }}">Pneumonia</a>
-              </li>
-           </ul>
-         </div>
-       </nav>
+    <div class="d-flex flex-column align-items-center">
+      <a class="navbar-brand" href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename = 'logo.png') }}" height="70px" width="180px">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto"> <!-- mx-auto centers the nav items -->
+        <li class="nav-item active">
+          <a href="{{ url_for('home') }}" class="nav-link">HOME</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('diabetesPage') }}">DIABETES</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('heartPage') }}">HEART</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 	<br>
-<br>
-<br>
-<br>
-<main>
-	<div class="container-fluid" style="margin-bottom: 20px;">
-	{% block content %}
+  <br>
+  <br>
+  <br>
+  <main>
+    <div class="container-fluid" style="margin-bottom: 20px;">
+    {% block content %}
 
-	{% endblock %}
+    {% endblock %}
     </div>
   </main>
   <footer style="background-image: linear-gradient(#4e0374, #4e0374) !important;">
     <center>
       <ul style="list-style-type:none;">
-      <li><p style="color: white;">Made with <span style="color: red;">&hearts;</span> by Kanchi, Trupti, and Saloni </p></li>
+      <li><p style="color: white;">Made with <span style="color: red;">&hearts;</span> by Tarang, Hemant, Hiten and Priyansh </p></li>
     </ul>
   </center>
   </footer>

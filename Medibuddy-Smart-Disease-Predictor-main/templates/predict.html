@@ -9,8 +9,16 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+.chart-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 900px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 </style>
-    <div class="row"  style="margin-bottom: 477px;">
+    <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
             {% if pred == 1 %}
@@ -18,9 +26,20 @@ body {
             {% else %}
                 <div class="card card-body alert alert-success"><center>NEGATIVE. The patient is healthy.</center></div>
             {% endif %}
-            <div class="row">
+            
+            <!-- Add this chart section -->
+            {% if chart %}
+            <div class="chart-container">
+                <h3 class="text-center">Your Health Metrics vs Healthy Averages</h3>
+                <img src="{{ chart }}" alt="Health Comparison Chart" class="img-fluid">
+            </div>
+            {% endif %}
+            
+            <div class="row" style="margin-top: 20px;">
                 <div class="col-md-4"></div>
-                <div class="col-md-4"><a href="{{ url_for('home') }}" class="btn btn-block btn-primary" style="background-color: #4e0374">Back to Home</a></div>
+                <div class="col-md-4">
+                    <a href="{{ url_for('home') }}" class="btn btn-block btn-primary" style="background-color: #4e0374">Back to Home</a>
+                </div>
                 <div class="col-md-4"></div>
             </div>
         </div>
